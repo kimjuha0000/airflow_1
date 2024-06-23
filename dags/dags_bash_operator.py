@@ -22,4 +22,8 @@ with DAG(
         bash_command="echo $HOSTNAME",
     )
      
-     bash_t1 >> bash_t2
+     bash_t3 = BashOperator(
+        task_id="bash_t3", # 객체명과 taskid는 일치하도록
+        bash_command="echo newtask",
+    )
+     bash_t1 >> bash_t2 >> bash_t3
