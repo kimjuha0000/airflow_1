@@ -31,4 +31,8 @@ with DAG(
         task_id="bash_t4", # 객체명과 taskid는 일치하도록
         bash_command="echo newtask",
     )
-     bash_t1 >> bash_t2 >> bash_t3 >> bash_t4
+     bash_t5 = BashOperator(
+        task_id="bash_t5", # 객체명과 taskid는 일치하도록
+        bash_command="echo newtask",
+    )
+     bash_t1 >> bash_t2 >> bash_t3 >> {bash_t4,bash_t5} 
